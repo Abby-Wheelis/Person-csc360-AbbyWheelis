@@ -12,7 +12,6 @@ class PersonTest
 	Person M;
 	Person Y;
 	
-	
 	@BeforeEach
 	void setUp() throws Exception
 	{
@@ -32,6 +31,7 @@ class PersonTest
 	@Test
 	void testNewPerson()
 	{
+		//these should fail (too young)
 		assertThrows(UnderAgeException.class,
 				()->{
 
@@ -44,7 +44,9 @@ class PersonTest
 					M.makePerson(J);
 				});
 		
+		//this make person should succeed
 		Person child;
+		
 		try
 		{
 			child = M.makePerson(Y);
@@ -56,8 +58,6 @@ class PersonTest
 			e.printStackTrace();
 			fail("threw exception");
 		}
-		
-		
 		
 	}
 
